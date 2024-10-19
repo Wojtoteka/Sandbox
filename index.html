@@ -20,78 +20,28 @@
             font-size: 16px;
             cursor: pointer;
         }
-        /* Styl dla pełnoekranowego wyświetlania obrazu */
-        #fullScreenImage {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-        }
-        #fullScreenImage img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        #fullScreenImage span {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
 
     <h1>Wyszukiwarka obrazów</h1>
     
-    <input type="text" id="searchInput" placeholder="Wpisz nazwę pliku np. s.png">
+    <input type="text" id="searchInput" placeholder="Wpisz nazwę pliku np. obraz.png">
     <button id="searchBtn">Szukaj</button>
 
-    <!-- Sekcja pełnoekranowa dla obrazu -->
-    <div id="fullScreenImage">
-        <span id="closeBtn">&times;</span>
-        <img id="image" src="" alt="Wyszukany obraz">
-    </div>
-
     <script>
-        const searchBtn = document.getElementById('searchBtn');
-        const searchInput = document.getElementById('searchInput');
-        const fullScreenImage = document.getElementById('fullScreenImage');
-        const imageElement = document.getElementById('image');
-        const closeBtn = document.getElementById('closeBtn');
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const fileName = document.getElementById('searchInput').value;
 
-        // Obsługa kliknięcia przycisku "Szukaj"
-        searchBtn.addEventListener('click', function() {
-            const fileName = searchInput.value;
-            const imgPath = fileName;
-
+            // Sprawdzamy, czy pole tekstowe nie jest puste
             if (fileName !== '') {
-                imageElement.src = imgPath;
-                fullScreenImage.style.display = 'flex';
+                // Tworzymy pełen URL do pliku na stronie Sandbox
+                const fullUrl = 'https://wojtoteka.github.io/Sandbox/' + fileName;
+                
+                // Przekierowanie na stronę z obrazem/filmem
+                window.location.href = fullUrl;
             } else {
                 alert('Wpisz nazwę pliku.');
-            }
-        });
-
-        // Obsługa zamykania pełnoekranowego obrazu
-        closeBtn.addEventListener('click', function() {
-            fullScreenImage.style.display = 'none';
-            imageElement.src = ''; // Resetowanie obrazu
-        });
-
-        // Zamknięcie obrazu po kliknięciu poza nim
-        fullScreenImage.addEventListener('click', function(e) {
-            if (e.target === fullScreenImage) {
-                fullScreenImage.style.display = 'none';
-                imageElement.src = '';
             }
         });
     </script>
