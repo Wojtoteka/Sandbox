@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyszukiwarka obrazów</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        #searchBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #imageDisplay {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Wyszukiwarka obrazów</h1>
+    
+    <input type="text" id="searchInput" placeholder="Wpisz nazwę pliku np. obraz.png">
+    <button id="searchBtn">Szukaj</button>
+
+    <div id="imageDisplay"></div>
+
+    <script>
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const fileName = document.getElementById('searchInput').value;
+            const imageDisplay = document.getElementById('imageDisplay');
+            const imgPath = 'img/' + fileName;
+
+            // Sprawdzamy, czy pole tekstowe nie jest puste
+            if (fileName !== '') {
+                // Tworzymy obraz i ustawiamy jego źródło
+                const img = document.createElement('img');
+                img.src = imgPath;
+                img.alt = fileName;
+
+                // Czyścimy poprzednie wyniki i wyświetlamy nowe zdjęcie
+                imageDisplay.innerHTML = '';
+                imageDisplay.appendChild(img);
+            } else {
+                imageDisplay.innerHTML = 'Wpisz nazwę pliku.';
+            }
+        });
+    </script>
+
+</body>
+</html>
