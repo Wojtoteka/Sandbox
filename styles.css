@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: black; /* Ustaw tło na czarne */
+    color: white; /* Ustaw tekst na biały dla lepszej widoczności */
+}
+
+#searchInput {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    background-color: #333; /* Ciemne tło dla pola tekstowego */
+    color: white; /* Biały tekst w polu tekstowym */
+    border: 1px solid #555; /* Lekko szary border */
+}
+
+#searchBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #444; /* Ciemne tło przycisku */
+    color: white; /* Biały tekst przycisku */
+    border: none; /* Bez obramowania */
+    border-radius: 5px; /* Zaokrąglone rogi */
+}
+
+#searchBtn:hover {
+    background-color: #555; /* Jaśniejsze tło przycisku przy najechaniu */
+}
+
+h1, h2 {
+    color: white; /* Biały kolor dla nagłówków */
+}
+
+#uploadForm {
+    margin-top: 20px;
+}
+
+#fileToUpload {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    background-color: #333; /* Ciemne tło dla pola przesyłania pliku */
+    color: white; /* Biały tekst w polu przesyłania pliku */
+    border: 1px solid #555; /* Lekko szary border */
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Zielony kolor */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Ciemniejszy zielony kolor przy najechaniu */
+}
